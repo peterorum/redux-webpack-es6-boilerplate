@@ -3,7 +3,6 @@ const webpack = require('webpack');
 const config = require('./webpack.config.base');
 const path = require('path');
 
-
 const GLOBALS = {
   'process.env': {
     'NODE_ENV': JSON.stringify('development')
@@ -33,9 +32,8 @@ module.exports = merge(config, {
       {
         test: /\.scss$/,
         include: [
-          path.resolve(__dirname, '../src/client/assets/javascripts'),
-          path.resolve(__dirname, '../src/client/assets/styles'),
-          path.resolve(__dirname, '../src/client/scripts')
+          path.resolve(__dirname, '../src/styles'),
+          path.resolve(__dirname, '../src/components')
         ],
         loaders: [
           'style',
@@ -44,24 +42,6 @@ module.exports = merge(config, {
           { loader: 'sass', query: { outputStyle: 'expanded' } }
         ]
       },
-      // Sass + CSS Modules
-      // {
-      //   test: /\.scss$/,
-      //   include: /src\/client\/assets\/javascripts/,
-      //   loaders: [
-      //     'style',
-      //     {
-      //       loader: 'css',
-      //       query: {
-      //         modules: true,
-      //         importLoaders: 1,
-      //         localIdentName: '[path][name]__[local]--[hash:base64:5]'
-      //       }
-      //     },
-      //     'postcss',
-      //     { loader: 'sass', query: { outputStyle: 'expanded' } }
-      //   ]
-      // },
       // CSS
       {
         test: /\.css$/,
