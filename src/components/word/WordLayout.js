@@ -10,7 +10,7 @@ export default class WordLayout extends Component {
 
     return (
       <div className='word'>
-        fishy
+        fishier
       </div>
     );
   }
